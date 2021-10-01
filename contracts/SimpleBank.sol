@@ -22,8 +22,8 @@ contract SimpleBank {
     mapping (address => bool) enrolled;
 
     // Let's make sure everyone knows who owns the bank, yes, fill in the
-    // appropriate visilibility keyword
-    address owner = msg.sender;
+    // appropriate visibility keyword
+    address public owner = msg.sender;
     
     /* Events - publicize actions to external listeners
      */
