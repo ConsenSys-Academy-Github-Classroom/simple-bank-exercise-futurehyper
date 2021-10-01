@@ -14,7 +14,7 @@ contract SimpleBank {
     
     // Fill in the visibility keyword. 
     // Hint: We want to protect our users balance from other contracts
-    mapping (address => uint) balances ;
+    mapping (address => uint) private balances ;
     
     // Fill in the visibility keyword
     // Hint: We want to create a getter function and allow contracts to be able
@@ -52,10 +52,11 @@ contract SimpleBank {
 
     /// @notice Get balance
     /// @return The balance of the user
-    function getBalance() public returns (uint) {
+    function getBalance() public view returns (uint) {
       // 1. A SPECIAL KEYWORD prevents function from editing state variables;
       //    allows function to run locally/off blockchain
       // 2. Get the balance of the sender of this transaction
+      return balances[msg.sender];
     }
 
     /// @notice Enroll a customer with the bank
